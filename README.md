@@ -53,9 +53,9 @@ Test: "It will take a number, check if it's value is 10 or greater. If yes, it w
 Code: numCheck(10);
 Expected Output: True;
 
-Test: "It will take a number of value 10 or greater, then separate the two digits into separate numbers."
+Test: "It will take a number. If value is 10 or greater, it will separate the two digits into separate numbers, and place into an array, and return it. If not, it will return the number as is."
 Code: numCheck(12);
-Expected Output: ones = 2, tens = 1;
+Expected Output: [1, 2];
 
 Test: "It will take numbers in an array, check to see if the values are 10 or greater, then add the individual digits together."
 Code: numCheck(array); --> [5, 12];
