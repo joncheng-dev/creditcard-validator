@@ -1,5 +1,23 @@
 // Business Logic
 
+// Adding all numbers of array.
+function arrayAddition(numbersArray) {
+  let sum = 0;
+  for (let i = 0; i < numbersArray.length; i++) {
+    sum += numbersArray[i];
+  }
+  return sum;
+}
+
+// Adding every other number, starting from the second to right-most.
+function arrayAdditionSkip(numbersArray) {
+  let sum = 0;
+  for (let i = 1; i < numbersArray.length; i += 2) {
+    sum += numbersArray[numbersArray.length - 1 - i];
+  }
+  return sum;
+}
+
 function numExtractor(number) {
   const numArray = [];
   let string = number.toString();
@@ -34,6 +52,18 @@ function numExtractor(number) {
     }
   });
   console.log("If double digits, added together: " + singleDigitsArray);
+  // Now add all the digits together.
+  // Array with single digits -- all.
+  // Array original -- with every other digit starting from 2nd to rightmost.
+  let originalNumbersArray = String(number)
+    .split("")
+    .map(function (number) {
+      return Number(number);
+    });
+  let totalSum = 0;
+  totalSum =
+    arrayAddition(singleDigitsArray) + arrayAdditionSkip(originalNumbersArray);
+  return totalSum;
 }
 
 // User Interface Logic

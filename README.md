@@ -60,3 +60,15 @@ Expected Output: [1, 2];
 Test: "It will take numbers in an array, check to see if the values are 10 or greater, then add the individual digits together."
 Code: numCheck(array); --> [5, 12];
 Expected Output: [5, 3];
+
+Test: "It will take digits of the array and add them all up."
+Code: arrayAddition(array); --> [1,6,2,9,5,1,6,2];
+Expected Output: 32;
+
+Test: "It will take every other digit of the array and add them up, starting from the second on the right."
+Code: arrayAdditionSkip(array); --> [1,6,2,9,5,1,6,2];
+Expected Output: 14;
+
+Test: "It will take a multi digit number (beginning of function, do some transformation), then take both arrays of digits, adding up all of one array, and every other digit from the other array -- starting from the second to most right."
+Code: numExtractor(4102080860435620);
+Expected Output: 50;
