@@ -96,3 +96,11 @@ Expected Output: Master;
 Test: "It will take a number, and return how many digits it has."
 Code: digitCounter(number);
 Expected Output: 1;
+
+Test: "It will take a number, and return how many digits it has."
+Code: digitCounter(number);
+Expected Output: 15;
+
+Test: "It will take a number, then run through steps 1, 2, and 3, determining if the number is a valid credit card number. If it is valid, it will also say what type."
+Code: ccNumberCheck(number);
+Expected Output: Visa;

@@ -1,5 +1,6 @@
 // Business Logic
 
+// Utility
 // Adding all numbers of array.
 function arrayAddition(numbersArray) {
   let sum = 0;
@@ -18,6 +19,7 @@ function arrayAdditionSkip(numbersArray) {
   return sum;
 }
 
+// STEP 2 of validation.
 // Function checking the first digits on the left, and determining issuer.
 function issuerCheck(number, digits) {
   const numArray = [];
@@ -44,10 +46,18 @@ function issuerCheck(number, digits) {
 }
 
 // Function counting number of digits of number entered;
+// STEP 3 of validation.
 function digitCounter(number) {
-  return true;
+  if (number.toString().length === 15) {
+    return "American Express";
+  } else if (number.toString().length === 16) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
+// STEP 1 of validation.
 function numExtractor(number) {
   const numArray = [];
   let string = number.toString();
@@ -93,7 +103,55 @@ function numExtractor(number) {
   let totalSum = 0;
   totalSum =
     arrayAddition(singleDigitsArray) + arrayAdditionSkip(originalNumbersArray);
-  return totalSum;
+  // Now let's check the right most digit of totalSum.
+  // console.log("Total is: " + totalSum);
+  // console.log("Rightmost digit is: " + totalSum.toString().charAt(1));
+  return totalSum.toString().charAt(1);
+}
+
+// Function that takes a number, puts it through different functions, and checks its validity.
+function ccNumberCheck(number) {
+  // STEP 1: Check Luhn Algorithm
+  if (numExtractor(number) === "0") {
+    // This is a valid number. Continue to determine what type.
+    // STEP 2: Check first digits of number.
+    let digits = 2;
+    let stepTwo = issuerCheck(number, digits);
+    if (stepTwo === "American Express") {
+      // Check for digits using step 3.
+      if (digitCounter(number) === "American Express") {
+        return "American Express";
+      } else {
+        return "Invalid number (reason 3)";
+      }
+    } else if (stepTwo === "Visa") {
+      // Check for digits using step 3.
+      if (digitCounter(number) === true) {
+        return "Visa";
+      } else {
+        return "Invalid number (reason 4)";
+      }
+    } else if (stepTwo === "Master Card") {
+      // Check for digits using Step 3.
+      if (digitCounter(number) === true) {
+        return "Master Card";
+      } else {
+        return "Invalid number (reason 5)";
+      }
+    } else if (stepTwo === "Discover") {
+      // Check for digits using Step 3.
+      if (digitCounter(number) === true) {
+        return "Discover";
+      } else {
+        return "Invalid number (reason 6)";
+      }
+    } else {
+      return "Invalid number (reason 2).";
+    }
+  } else {
+    // Invalid number. Ends.
+    return "Invalid number (reason 1).";
+  }
 }
 
 // User Interface Logic
