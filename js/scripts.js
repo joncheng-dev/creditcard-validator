@@ -18,6 +18,36 @@ function arrayAdditionSkip(numbersArray) {
   return sum;
 }
 
+// Function checking the first digits on the left, and determining issuer.
+function issuerCheck(number, digits) {
+  const numArray = [];
+  let string = number.toString();
+  for (let i = 0; i < digits; i++) {
+    numArray.push(string.charAt(i));
+  }
+  // Number array here will go into the next part.
+  if (numArray[0] === "3") {
+    if (numArray[1] === "4" || numArray[1] === "7") {
+      return "American Express";
+    } else {
+      return "Not a valid credit card number";
+    }
+  } else if (numArray[0] === "4") {
+    return "Visa";
+  } else if (numArray[0] === "5") {
+    return "Master Card";
+  } else if (numArray[0] === "6") {
+    return "Discover";
+  } else {
+    return "Not a valid credit card number";
+  }
+}
+
+// Function counting number of digits of number entered;
+function digitCounter(number) {
+  return true;
+}
+
 function numExtractor(number) {
   const numArray = [];
   let string = number.toString();

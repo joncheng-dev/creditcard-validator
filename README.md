@@ -72,3 +72,27 @@ Expected Output: 14;
 Test: "It will take a multi digit number (beginning of function, do some transformation), then take both arrays of digits, adding up all of one array, and every other digit from the other array -- starting from the second to most right."
 Code: numExtractor(4102080860435620);
 Expected Output: 50;
+
+Test: "It will take a multi digit number, then extract the first digit on the left."
+Code: firstDigits(412);
+Expected Output: 4;
+
+Test: "It will take a multi digit number and a number of digits as parameters, then extract the first two digits on the left, and place them in an array."
+Code: firstDigits(412, 2);
+Expected Output: ['4', '1'];
+
+Test: "It will take an array of two numbers. It will determine if the first one is a 3 or not. If it's a 3, it will return true. If not, it returns false."
+Code: checkIssuer(numArray); --> ['3', '2'];
+Expected Output: true;
+
+Test: "It will take an array of two numbers. It will determine if the first one is a 3 or not. If it's a 3, it will check the next digit. If it's a 4 or 7, it will return American Express. If not, it will return false."
+Code: checkIssuer(numArray); --> ['3', '4'];
+Expected Output: American Express;
+
+Test: "It will take an array of two numbers. It will determine if the first one is a 6, 5, or 4. If it's a 6, it will return Discover. If 5, Master. If 4, Visa."
+Code: checkIssuer(numArray); --> ['5', '4'];
+Expected Output: Master;
+
+Test: "It will take a number, and return how many digits it has."
+Code: digitCounter(number);
+Expected Output: 1;
